@@ -21,7 +21,6 @@ while start:
         start = False
         client.send(str(['q']).encode('utf-8'))
     elif msg == 'new_trivia':
-        print(random.choice(trivia_QnA))
         client.send(str(random.choice(trivia_QnA)).encode('utf-8'))
     else:
         client.send(f'help bot: welcome {msg}!'.encode('utf-8'))

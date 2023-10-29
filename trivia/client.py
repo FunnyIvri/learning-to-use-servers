@@ -12,13 +12,14 @@ while start:
     if msg[0] == 'q':
         start = False
     else:
-        answer = input(f'{msg[0]}\nyou: ')
+        answer = input(f'trivia_bot: {msg[0]}\nyou: ')
         if answer == 'q':  client.send('q'.encode('utf-8'))
         elif answer.lower() == msg[1].lower():
             score += 1
             print(f'Correct!\ncurrent score: {score}')
             client.send('new_trivia'.encode('utf-8'))
         else:
+            score -= 1
             print(f'incorrect the correct answer was {msg[1]}\ncurrent score: {score}')
             client.send('new_trivia'.encode('utf-8'))
 # close socket
