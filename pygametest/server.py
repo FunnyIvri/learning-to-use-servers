@@ -25,12 +25,11 @@ try:
             while True:
                 print(clientAddress[1])
                 client.send(pickle.dumps(data))
-
-                data = msg
                 msg = pickle.loads(clientSocket.recv(1024))
                 if msg == "init":
                     client.send(pickle.dumps(data))
                     continue
+                data = msg
                 if msg == "q":
                     client.send(pickle.dumps("q"))
                     print(f'client[{clientAddress}] has left!')
